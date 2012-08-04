@@ -1,22 +1,15 @@
 package com.topcat.npclib.entity;
 
+import com.topcat.npclib.nms.NPCEntity;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.Packet18ArmAnimation;
 import net.minecraft.server.WorldServer;
-
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-
-import org.getspout.spout.player.SpoutCraftPlayer;
-import org.getspout.spoutapi.player.SpoutPlayer;
-
-import com.topcat.npclib.nms.NPCEntity;
 
 public class HumanNPC extends NPC {
 
@@ -62,22 +55,7 @@ public class HumanNPC extends NPC {
 	}
 
 	public void setSneaking() {
-		getEntity().setSneak(true);
-	}
-
-	public SpoutPlayer getSpoutPlayer() {
-		try {
-			Class.forName("org.getspout.spout.Spout");
-
-			if (!(getEntity().getBukkitEntity() instanceof SpoutCraftPlayer)) {
-				((NPCEntity) getEntity()).setBukkitEntity(new SpoutCraftPlayer((CraftServer) Bukkit.getServer(), (EntityPlayer) getEntity()));
-			}
-
-			return (SpoutPlayer) getEntity().getBukkitEntity();
-		} catch (ClassNotFoundException e) {
-			Bukkit.getServer().getLogger().warning("Cannot get spout player without spout installed");
-		}
-		return null;
+		getEntity().setSneaking(true);
 	}
 
 	public void lookAtPoint(Location point) {
@@ -97,7 +75,7 @@ public class HumanNPC extends NPC {
 		}
 		getEntity().yaw = (float) (newYaw - 90);
 		getEntity().pitch = (float) newPitch;
-		((EntityPlayer)getEntity()).X = (float)(newYaw - 90);
+		((EntityPlayer)getEntity()).as = (float)(newYaw - 90);
 	}
 
 }
