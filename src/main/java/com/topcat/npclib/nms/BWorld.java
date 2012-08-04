@@ -97,7 +97,8 @@ public class BWorld {
 				}
 				return null;
 			}
-		});
+		}
+		);
 	}
 
 }
