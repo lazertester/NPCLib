@@ -1,18 +1,14 @@
 package com.topcat.npclib;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
-
+import com.topcat.npclib.entity.HumanNPC;
+import com.topcat.npclib.entity.NPC;
+import com.topcat.npclib.nms.BServer;
+import com.topcat.npclib.nms.BWorld;
+import com.topcat.npclib.nms.NPCEntity;
+import com.topcat.npclib.nms.NPCNetworkManager;
 import net.minecraft.server.Entity;
 import net.minecraft.server.ItemInWorldManager;
 import net.minecraft.server.WorldServer;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -24,12 +20,9 @@ import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.topcat.npclib.entity.HumanNPC;
-import com.topcat.npclib.entity.NPC;
-import com.topcat.npclib.nms.BServer;
-import com.topcat.npclib.nms.BWorld;
-import com.topcat.npclib.nms.NPCEntity;
-import com.topcat.npclib.nms.NPCNetworkManager;
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.logging.Level;
 
 /**
  *
@@ -55,7 +48,7 @@ public class NPCManager {
 				HashSet<String> toRemove = new HashSet<String>();
 				for (String i : npcs.keySet()) {
 					Entity j = npcs.get(i).getEntity();
-					j.aA();
+					j.z();
 					if (j.dead) {
 						toRemove.add(i);
 					}
